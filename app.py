@@ -385,11 +385,13 @@ def page_upload():
             cand_phone = evaluation.get("phone_number", "Unknown")
             
             # Duplicate Rejection Logic
-            identifier = (cand_name.lower(), cand_email.lower())
-            if identifier in seen_candidates and cand_email != "Unknown":
+            identifier1 = file_name.lower()
+            identifier2 = (cand_name.lower(), cand_email.lower())
+            if identifier1 in seen_candidates or (identifier2 in seen_candidates and cand_email != "Unknown"):
                 st.info(f"⏭️ Skipped Duplicate Resume: {cand_name}")
                 continue
-            seen_candidates.add(identifier)
+            seen_candidates.add(identifier1)
+            seen_candidates.add(identifier2)
                 
             candidate_data = {
                 "name": cand_name,
