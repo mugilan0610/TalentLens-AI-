@@ -98,6 +98,26 @@ def evaluate_candidate(api_key, jd_text, resume_text):
         import random
         import re
         
+        # Basic Gatekeeper validation for professional formats
+        resume_keywords = ["experience", "education", "skills", "work", "employment", "project", "objective", "resume", "cv"]
+        found_keywords = [k for k in resume_keywords if k in resume_text.lower()]
+        
+        if len(found_keywords) < 2:
+            return {
+                "is_resume": False,
+                "score": 0,
+                "candidate_name": "Unknown",
+                "email": "Unknown",
+                "phone_number": "Unknown",
+                "location": "Unknown",
+                "passed_out_year": "Unknown",
+                "experience_label": "Unknown",
+                "skills_found": [],
+                "missing_skills": [],
+                "summary": "Invalid Document: Does not match professional resume structures.",
+                "interview_questions": []
+            }
+            
         lines = [l.strip() for l in resume_text.split('\n') if l.strip()]
         name = "Unknown Candidate"
         if lines:
