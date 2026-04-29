@@ -99,10 +99,12 @@ def evaluate_candidate(api_key, jd_text, resume_text):
         import re
         
         # Basic Gatekeeper validation for professional formats
-        resume_keywords = ["experience", "education", "skills", "work", "employment", "project", "objective", "resume", "cv"]
+        resume_keywords = ["experience", "education", "skills", "work", "employment", "project", "objective", "resume", "cv", "contact"]
         found_keywords = [k for k in resume_keywords if k in resume_text.lower()]
         
-        if len(found_keywords) < 2:
+        email_match = re.search(r'[\w\.-]+@[\w\.-]+\.\w+', resume_text)
+        
+        if len(found_keywords) < 3 or not email_match:
             return {
                 "is_resume": False,
                 "score": 0,
@@ -114,7 +116,7 @@ def evaluate_candidate(api_key, jd_text, resume_text):
                 "experience_label": "Unknown",
                 "skills_found": [],
                 "missing_skills": [],
-                "summary": "Invalid Document: Does not match professional resume structures.",
+                "summary": "Invalid Document: Does not match professional resume parameters (missing contact/work sections).",
                 "interview_questions": []
             }
             
