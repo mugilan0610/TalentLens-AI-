@@ -4,4 +4,7 @@ pdfplumber
 pandas
 streamlit-option-menu
 plotly
+requests
+streamlit-lottie
 python-docx
+fpdf

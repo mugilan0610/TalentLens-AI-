@@ -31,6 +31,7 @@ def generate_docx_report(candidates):
     bio.seek(0)
     return bio.getvalue()
 
+@st.cache_resource
 def load_lottieurl(url: str):
     try:
         r = requests.get(url, timeout=5)
