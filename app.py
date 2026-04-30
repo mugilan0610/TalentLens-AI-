@@ -78,9 +78,42 @@ with st.sidebar:
 # Native Streamlit Navigation (prevents full page refresh)
 st.markdown("""
     <style>
-    /* Hide Unnecessary Top Elements but KEEP Expand Chevron */
-    header {visibility: hidden;}
-    [data-testid="collapsedControl"] {visibility: visible !important;}
+    /* Futuristic Sidebar Toggles */
+    [data-testid="stSidebarCollapseButton"] button,
+    [data-testid="collapsedControl"] button {
+        background: rgba(10, 10, 15, 0.7) !important;
+        border: 1px solid rgba(0, 212, 255, 0.5) !important;
+        border-radius: 12px !important;
+        color: #00d4ff !important;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.3) !important;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    [data-testid="stSidebarCollapseButton"] button:hover,
+    [data-testid="collapsedControl"] button:hover {
+        background: rgba(0, 212, 255, 0.2) !important;
+        border-color: #00d4ff !important;
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.6) !important;
+        transform: scale(1.1) !important;
+    }
+
+    header[data-testid="stHeader"] {
+        background: transparent !important;
+        z-index: 999991 !important;
+    }
+    
+    [data-testid="collapsedControl"] {
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 999992 !important;
+        left: 20px !important;
+        top: 20px !important;
+    }
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     [data-testid="stTextInput"] input[type="password"] {
@@ -201,9 +234,6 @@ st.markdown("""
         display: none !important;
     }
     
-    div[data-testid="stTabPanel"] {
-        width: calc(100% - 320px) !important;
-    }
     
     /* Upload Layout Styling */
     .stApp { font-family: 'Outfit', sans-serif !important; }

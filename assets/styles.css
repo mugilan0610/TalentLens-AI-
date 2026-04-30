@@ -11,7 +11,10 @@
 .stApp::before {
     content: "";
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(10, 10, 15, 0.6);
     pointer-events: none;
     z-index: 0;
@@ -22,14 +25,25 @@
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
 }
-.light-mode .antigravity-card, .light-mode .holographic-pod {
+
+.light-mode .antigravity-card,
+.light-mode .holographic-pod {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.4);
     color: #1a1a1a;
 }
-.light-mode .card-title { color: #1a1a1a; }
-.light-mode .section-title { color: #333; }
-.light-mode .card-email { color: #555; }
+
+.light-mode .card-title {
+    color: #1a1a1a;
+}
+
+.light-mode .section-title {
+    color: #333;
+}
+
+.light-mode .card-email {
+    color: #555;
+}
 
 /* Antigravity Scorecards */
 .antigravity-card {
@@ -107,9 +121,17 @@
 
 /* Floating animation */
 @keyframes float {
-    0% { transform: translateY(0px) perspective(1000px) rotateX(1deg); }
-    50% { transform: translateY(-10px) perspective(1000px) rotateX(1deg); }
-    100% { transform: translateY(0px) perspective(1000px) rotateX(1deg); }
+    0% {
+        transform: translateY(0px) perspective(1000px) rotateX(1deg);
+    }
+
+    50% {
+        transform: translateY(-10px) perspective(1000px) rotateX(1deg);
+    }
+
+    100% {
+        transform: translateY(0px) perspective(1000px) rotateX(1deg);
+    }
 }
 
 .floating-anim {
@@ -118,9 +140,20 @@
 
 /* The Pulse Effect for Top 1 */
 @keyframes neon-pulse {
-    0% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.3); border-color: rgba(0, 212, 255, 0.6); }
-    50% { box-shadow: 0 0 40px rgba(0, 212, 255, 1), inset 0 0 25px rgba(0, 212, 255, 0.8); border-color: #00d4ff; }
-    100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.3); border-color: rgba(0, 212, 255, 0.6); }
+    0% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.3);
+        border-color: rgba(0, 212, 255, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 212, 255, 1), inset 0 0 25px rgba(0, 212, 255, 0.8);
+        border-color: #00d4ff;
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.3);
+        border-color: rgba(0, 212, 255, 0.6);
+    }
 }
 
 .top-1-pulse {
@@ -141,7 +174,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     transform: rotate(45deg);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5), 0 0 15px rgba(255, 215, 0, 0.6);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.6);
     z-index: 10;
 }
 
@@ -196,6 +229,7 @@
     position: relative;
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
+
 .circular-score::before {
     content: "";
     position: absolute;
@@ -203,6 +237,7 @@
     background: #0d1117;
     border-radius: 50%;
 }
+
 .score-text {
     position: relative;
     z-index: 1;
@@ -251,54 +286,36 @@
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid transparent;
 }
+
 .nav-item-custom:hover {
     background: rgba(0, 212, 255, 0.1);
     border: 1px solid rgba(0, 212, 255, 0.3);
     color: #fff;
     transform: translateX(5px);
 }
+
 .nav-item-custom.active {
     background: rgba(0, 212, 255, 0.2);
     border-left: 4px solid #00d4ff;
     color: #fff;
     font-weight: bold;
 }
+
 .nav-icon {
     width: 24px;
     height: 24px;
     margin-right: 15px;
     object-fit: contain;
-    filter: drop-shadow(0 0 5px rgba(0,212,255,0.5));
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
+
 .sidebar-logo {
     width: 100%;
     max-width: 200px;
     margin: 0 auto 20px auto;
     display: block;
-    filter: drop-shadow(0 0 10px rgba(0,212,255,0.6));
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
     animation: pulse-glow 3s infinite alternate;
 }
 
 /* Responsive Breakpoints */
-@media screen and (min-width: 1200px) {
-    [data-testid="stSidebar"] {
-        width: 320px !important;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-}
-
-@media screen and (max-width: 1024px) and (min-width: 768px) {
-    [data-testid="stSidebar"] {
-        width: 260px !important;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    [data-testid="stSidebar"] {
-        width: 100% !important;
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: 99999;
-    }
-}
