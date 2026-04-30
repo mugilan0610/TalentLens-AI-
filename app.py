@@ -92,8 +92,18 @@ st.markdown("""
         justify-content: center !important;
         width: 40px !important;
         height: 40px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
+    [data-testid="stSidebarCollapseButton"] {
+        visibility: visible !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        padding-right: 10px !important;
+        padding-top: 10px !important;
+    }
+
     [data-testid="stSidebarCollapseButton"] button:hover,
     [data-testid="collapsedControl"] button:hover {
         background: rgba(0, 212, 255, 0.2) !important;
@@ -113,6 +123,7 @@ st.markdown("""
         z-index: 999992 !important;
         left: 20px !important;
         top: 20px !important;
+        display: flex !important;
     }
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
